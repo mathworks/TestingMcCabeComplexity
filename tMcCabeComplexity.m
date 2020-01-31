@@ -1,5 +1,5 @@
 classdef tMcCabeComplexity < matlab.unittest.TestCase
-% Tests McCabe complexity of all MATLAB code files in project
+% Tests McCabe complexity of all MATLAB code files in current project
 
     methods (TestClassSetup)
         function assumeProjectLoaded(testCase)
@@ -26,9 +26,9 @@ classdef tMcCabeComplexity < matlab.unittest.TestCase
                     % Extract cyc
                     cycjj = regexp(string(cycii(jj).message), "is (\d*)\.", 'tokens'); % Get all digits at end of message.
                     if ~isempty(cycjj)  
-                    % Other messages will some times appear as well that
+                    % Other messages will sometimes appear as well that
                     % don't contain -cyc info.  Skip them.
-                        cycjj = double(cycjj{1}); % extract from cell, convert to couble
+                        cycjj = double(cycjj{1}); % Extract from cell, convert to couble
                         
                         % Fail test if >= 10;
                         testCase.verifyLessThan(cycjj, 10, sprintf('McCabe Complexity of %i\nIn: %s', cycjj, codefiles(ii)));
@@ -40,3 +40,5 @@ classdef tMcCabeComplexity < matlab.unittest.TestCase
     end
  
 end
+
+% Copyright 2020 The MathWorks, Inc.
