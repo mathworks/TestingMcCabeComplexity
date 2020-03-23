@@ -1,5 +1,9 @@
 classdef tMcCabeComplexity < matlab.unittest.TestCase
 % Tests McCabe complexity of all MATLAB code files in current project
+%
+% This unit test inspects all of the MATLAB code files in the current
+% project and checks their McCabe complexity.  If any exceed the
+% MaximumComplexity they're names are reported and the test fails.
 
     properties (TestParameter)
         MaximumComplexity = struct('Ten', 10);
@@ -12,8 +16,7 @@ classdef tMcCabeComplexity < matlab.unittest.TestCase
     end
     
     methods (Test)
-        
-        % Test
+                
         function shouldHaveLowComplexity(testCase, MaximumComplexity)
             % Get project files
             cp = currentProject;            
