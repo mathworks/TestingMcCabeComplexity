@@ -21,7 +21,7 @@ classdef tMcCabeComplexity < matlab.unittest.TestCase
             % Get project files
             cp = currentProject;            
             projectfiles = [cp.Files(:).Path];
-            codefiles = projectfiles(endsWith(projectfiles, [".m" ".mlx"]));
+            codefiles = projectfiles(endsWith(projectfiles, [".m" ".mlx" ".mlapp"]));
             
             % Get cyclomatic complexity
             [cyc, ~] = checkcode(codefiles, '-cyc');
